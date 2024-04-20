@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date of Birth Validation</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<form id="dobForm">
+    <fieldset>
+        <legend>Date of Birth:</legend>
+        <input type="date" id="dob" name="dob"><br>
+    </fieldset>
+    <span id="dobError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.getElementById("dobForm").addEventListener("submit", function(event){
+        event.preventDefault();
+        validateDOB();
+    });
+
+    function validateDOB() {
+        const dobInput = document.getElementById("dob");
+        const dobError = document.getElementById("dobError");
+        const dob = dobInput.value;
+
+        // Check if the date is not empty
+        if (dob === "") {
+            dobError.textContent = "Date of Birth is required";
+            dobInput.focus();
+            return false;
+        }
+
+        // Check if the date is a valid number (dd: 1-31, mm: 1-12, yyyy: 1900-2016)
+        const dobDate = new Date(dob);
+        const currentYear = new Date().getFullYear();
+
+        if (isNaN(dobDate) || dobDate.getFullYear() < 1900 || dobDate.getFullYear() > 2016) {
+            dobError.textContent = "Please enter a valid date of birth";
+            dobInput.focus();
+            return false;
+        }
+
+        dobError.textContent = "";
+        return true;
+    }
+</script>
+
+</body>
+</html>

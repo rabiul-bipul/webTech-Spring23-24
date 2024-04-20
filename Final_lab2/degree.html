@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Degree Selection</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<form id="degreeForm">
+    <fieldset>
+        <legend>Degree:</legend>
+        <input type="checkbox" id="ssc" name="degree" value="SSC">
+        <label for="ssc">SSC</label><br>
+        <input type="checkbox" id="hsc" name="degree" value="HSC">
+        <label for="hsc">HSC</label><br>
+        <input type="checkbox" id="bsc" name="degree" value="BSC">
+        <label for="bsc">BSC</label><br>
+    </fieldset>
+    <span id="degreeError" class="error"></span><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.getElementById("degreeForm").addEventListener("submit", function(event){
+        event.preventDefault();
+        validateDegree();
+    });
+
+    function validateDegree() {
+        const degreeError = document.getElementById("degreeError");
+        const ssc = document.getElementById("ssc").checked;
+        const hsc = document.getElementById("hsc").checked;
+        const bsc = document.getElementById("bsc").checked;
+
+        if (!ssc && !hsc && !bsc) {
+            degreeError.textContent = "Please select a degree";
+            return false;
+        } else {
+            degreeError.textContent = "";
+            return true;
+        }
+    }
+</script>
+
+</body>
+</html>

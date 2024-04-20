@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person Profile</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <form action="">
+      <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+          <td align="middle" colspan="3"><h1>PERSON PROFILE</h1></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" id="name" value="" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="text" name="email" id="email" value="" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <input type="radio" name="gender" id="gender" value="" />Male
+            <input
+              type="radio"
+              name="gender"
+              id="female"
+              value="Female"
+            />Female
+            <input type="radio" name="gender" id="other" value="Other" />Other
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><input type="date" name="dob" id="dob" /></td>
+        </tr>
+        <tr>
+          <td>Degree</td>
+          <td>
+            <input type="checkbox" name="degree[]" id="degree" value="ssc" />SSC
+            <input type="checkbox" name="degree[]" id="degree" value="hsc" />HSC
+            <input type="checkbox" name="degree[]" id="degree" value="bsc" />BSc
+          </td>
+        </tr>
+        <tr>
+          <td>Blood Group</td>
+          <td>
+            <select name="bloodGroup" id="bloodGroup">
+              <option value="">-</option>
+              <option value="a+">A+</option>
+              <option value="a-">A-</option>
+              <option value="b+">B+</option>
+              <option value="ab+">AB+</option>
+              <option value="ab-">AB-</option>
+              <option value="o+">O+</option>
+              <option value="o-">O-</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Profile Picture</td>
+          <td>
+            <input type="file" name="profile-picture" id="profile-picture" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <input
+              type="button"
+              value="Submit"
+              onclick="personProfileCheck()"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <h1 id="validation"></h1>
+  </body>
+</html>
